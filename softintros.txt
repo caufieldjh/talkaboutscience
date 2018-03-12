@@ -1,0 +1,122 @@
+a C library for
+a Galaxy-based system for
+a JavaScript library for
+a Linux distribution for
+a Perl module for
+a Python package for
+a bioconductor package for
+a comprehensive database of
+a data integration framework for
+a database of
+a flexible table format for
+a framework for
+a graphical web tool for
+a more practical approach for
+a new approach for
+a novel approach for
+a pipeline for
+a profiler for
+a query tool for
+a query tool for working with
+a resource for probing
+a scalable algorithm for
+a set of libraries for
+a simple yet accurate correction for
+a software package for
+a statistical method for
+a system for
+a system for
+a technique for
+a tool for
+a two-stage approach for
+a unified platform for
+a user-friendly platform for
+a web-based platform for
+an App for
+an R package for
+an R/Bioconductor package for
+an application in
+an online tool for
+an open-source C++ library for
+analyzing
+causality modeling for
+modeling of
+deep learning for
+deep learning approaches for
+hierarchical error control for
+hypothesis testing for
+integrative analysis for
+knowledge base of
+one place to gather all the tools for
+online analysis pipeline for
+ontology and knowledge base of
+ontology of
+simulation of
+software for
+software to support
+storage and exploration of
+visualization of
+web services for
+an integrated pipeline for
+identification and filtration of
+measuring the landscape of
+deconfounding
+automated text mining for
+an integrative frameworkcom for
+new tool for
+a web analytics tool for
+simulation of
+a generalized software toolkit for
+a robust framework for
+a model for
+a new take on
+estimation of
+online visual analytics of
+a globally optimal solution to
+a cumulative approach to
+an open platform for
+an open-source solution for
+a computational method for
+an introduction to
+super-resolution measurement of
+a high-content platform for
+tools for automating the imaging of
+metadata management for
+a method for rapid analysis of
+live imaging and modeling for
+a straightforward approach for
+likelihood-based inference of
+harnessing the power of
+an atlas of
+a map of
+a record of
+a catalogue of
+an outline of
+a guide to
+a new paradigm for
+a new standard for
+a benchmark for
+a proof of principle for
+an illustration of
+a corpus for
+analysis using
+transfer learning for
+an easy-to-use program for
+deep reasoning in
+agent-based model for
+the joint effects of
+evaluating vector-space models of
+a novel transition system for
+a deep reinforced model for
+deep generative models of
+a value imputation approach for
+creative exploration using
+using additional indexes for
+a new discovery engine for
+entity retrieval for
+conceptual models of
+deep neural models for
+genetic programming based models in
+an ex vivo and in silico study of
+in silico analysis of
+text-mining of articles about
