@@ -103,6 +103,31 @@ def title_this(s):
 	return re.sub(r"[A-Za-z]+('[A-Za-z]+)?",
 		lambda mo: mo.group(0)[0].upper() +
 			mo.group(0)[1:].lower(), s)
+			
+def gen_authors(n, names):
+	#Generate author names and return in a list.
+	#Pass it name list so names can be specified if needed
+	#Name format is first initial, last name
+	authors = []
+	for i in range(0,n):
+		initials = ""
+		for j in range(0,random.randint(1,2)):
+			initials = initials + random.choice(string.ascii_uppercase)
+		this_name = random.choice(names).capitalize() + " " + initials
+		authors.append(this_name)
+	return authors
+	
+def gen_journal():
+	#Gets a random journal name (abbreviated) from the list of MEDLINE
+	#indexed journals.
+	jnames = []
+	with open("J_Medline_IsoAbbr.txt") as jnamefile:
+		for line in jnamefile:
+			cleanline = (line.rstrip())
+			jnames.append(cleanline)
+	jname = random.choice(jnames)
+	return jname
+	
 
 #Main
 def main():
@@ -110,7 +135,6 @@ def main():
 	mode = raw_input('Operating mode:\n 1 for testing\n 3 for posting.\n')
 	mode = int(mode)
 	generating = True
-	
 	
 	# For twitter OAuth
 	try:
@@ -397,19 +421,10 @@ def main():
 			elif choice == 2:
 				lineout = "Methods to study %s using %s %s" % (noun1, adj1, noun2)
 				phrase = "%s %s" % (adj1, noun2)
-				
+		
 		if random.randint(0,6) == 0:
 			lineout = title_this(lineout)
-			
-		if random.randint(0,7) == 0:
-			acronym = ""
-			for i in title_this(phrase).split():
-				if i == "in":
-					acronym += "i"
-				else:
-					acronym += i[0]
-			lineout = "%s (%s)" % (lineout, acronym)
-			
+		
 		if random.randint(0,19) == 0:
 			com_choice = random.randint(0,4)
 			if com_choice == 0:
@@ -422,8 +437,53 @@ def main():
 				lineout = "Response to Comment on: \"%s\"" % lineout
 			elif com_choice == 4:
 				lineout = "Erratum for the Research Article: \"%s\"" % lineout
+		
+		full_head_style = False
+		#Turn this into a full heading
+		#For now, this just means add some author names and a journal
+		#and a year.
+		#The journal doesn't correspond at all with the topic.
+		#That would be fun, though.
+		#Similarly, year is random and doesn't respect logic.
+		#Also the page number generator isn't quite right
+		#due to page number styles in citations being terrible.
+		#Also the divider should be en dash rather than -.
+		if random.randint(0,4) == 0:
+			full_head_style = True
+			lineout = lineout[0].upper() + lineout[1:] #First letter should be capitalized.
 			
-		if random.randint(0,5) == 0:
+			#Get authors
+			authorcount = random.randint(1,5)
+			authors = gen_authors(authorcount, names)
+			if len(authors) == 5 and random.randint(0,0) == 0:
+				authors.append("et al")
+			lineout = ", ".join(authors) + ". " + lineout + "."
+			
+			#Get journal name
+			journal = gen_journal() + "."
+			lineout = lineout + " " + journal
+			
+			#Pub year and pub details
+			pubyear = str(random.randint(1940,2018))
+			pagestart = random.randint(1,2000)
+			pageend = pagestart + random.randint(1,65)
+			if pagestart == pageend:
+				pagerange = str(pagestart)
+			else:
+				pagerange = str(pagestart) + "-" + str(pageend)
+			pubdetails = pubyear + ";" + str(random.randint(1,12)) + ":" + pagerange 
+			lineout = lineout + " " + pubdetails + "."
+			
+		if random.randint(0,7) == 0 and not full_head_style:
+			acronym = ""
+			for i in title_this(phrase).split():
+				if i == "in":
+					acronym += "i"
+				else:
+					acronym += i[0]
+			lineout = "%s (%s)" % (lineout, acronym)
+			
+		if random.randint(0,5) == 0 and not full_head_style:
 			if random.randint(0,1) == 0:
 				lineout = lineout + "."
 			else:
